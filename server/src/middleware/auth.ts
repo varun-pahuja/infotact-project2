@@ -27,7 +27,7 @@ export function authMiddleware(
 
   try {
     const decoded = jwt.verify(token, config.jwtSecret, {
-      algorithms: ["RS256"],
+      algorithms: ["HS256"],
     }) as UserPayload;
 
     req.user = decoded;
