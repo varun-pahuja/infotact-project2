@@ -102,12 +102,12 @@ router.post("/refresh", async (req, res) => {
 
 function generateTokens(payload: UserPayload): AuthToken {
   const accessToken = jwt.sign(payload, config.jwtSecret, {
-    algorithm: "RS256",
+    algorithm: "HS256",
     expiresIn: config.jwtAccessExpiry,
   });
 
   const refreshToken = jwt.sign(payload, config.jwtRefreshSecret, {
-    algorithm: "RS256",
+    algorithm: "HS256",
     expiresIn: config.jwtRefreshExpiry,
   });
 
